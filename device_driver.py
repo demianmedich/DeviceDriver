@@ -1,5 +1,7 @@
 from hardware_interface import FlashMemoryDevice
 
+WRITABLE_VALUE = 0xFF
+
 
 class DeviceDriver:
     """
@@ -13,8 +15,9 @@ class DeviceDriver:
         self.__device = device
 
     def write(self, address: int, data: int) -> None:
-        # TODO: implement this method
-        pass
+        if self.read(address) != WRITABLE_VALUE:
+            raise Exception("WriteFailException")
+        self.__device.write(address, data)
 
     def read(self, address: int) -> int:
         result = set(self.__device.read(address) for _ in range(5))
