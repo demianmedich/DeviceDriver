@@ -13,8 +13,7 @@ class DeviceDriver:
         self.__device = device
 
     def write(self, address: int, data: int) -> None:
-        # TODO: implement this method
-        pass
+        raise Exception("WriteFailException")
 
     def read(self, address: int) -> int:
         result = set(self.__device.read(address) for _ in range(5))
