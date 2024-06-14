@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class FlashMemoryDevice(ABC):
     """
     This class represents the interface to a Flash Memory Device. The hardware has only two methods - 'read' and 'write'
