@@ -20,4 +20,4 @@ class DeviceDriver:
         result = set(self.__device.read(address) for _ in range(5))
         if len(result) > 1:
             raise Exception("ReadFailException")
-        return 0
+        return result.pop()

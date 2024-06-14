@@ -21,3 +21,7 @@ class DeviceDriverTest(TestCase):
         self.device.read.side_effect = [0x0, 0x0, 0x0, 0x0, 0x0]
 
         self.assertEqual(0x0, self.driver.read(0xFF))
+
+        self.device.read.side_effect = [0x1 for _ in range(5)]
+
+        self.assertEqual(0x1, self.driver.read(0xFF))
